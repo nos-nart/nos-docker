@@ -1,0 +1,16 @@
+#Compose file versions support specific Docker releases.
+version: "3.8"
+
+services:
+  app:
+    # Specify a custom container name, rather than a generated default name
+    container_name: react-app
+    image: react-app
+    build:
+      context: .
+      target: development
+    volumes:
+      - ./src:/app/src
+    stdin_open: true
+    ports:
+      - 3000:3000
